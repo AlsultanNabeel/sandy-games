@@ -115,11 +115,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       return;
     }
-
-    const reactionTime = Math.max(0, Math.floor(performance.now() - startTime));
-    result.textContent = `${reactionTime} مللي ثانية`;
+    const reactionTimeMs = Math.max(0, performance.now() - startTime);
+    const formattedTime = reactionTimeMs.toFixed(2);
+    result.textContent = `${formattedTime} مللي ثانية`;
     setMessage("أداء رائع! تريد المحاولة مرة أخرى؟", "success");
-    isRoundActive = false;
     updateTarget("idle");
     resetButton.hidden = false;
     startButton.disabled = false;
