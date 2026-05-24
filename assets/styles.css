@@ -82,54 +82,74 @@ nav {
   background-color: rgba(76, 110, 245, 0.18);
   transform: translateY(-1px);
   box-shadow: 0 6px 14px rgba(76, 110, 245, 0.2);
+.hero {
+  padding: clamp(3rem, 6vw, 5rem) 1.5rem;
+  background: linear-gradient(135deg, rgba(76, 110, 245, 0.18), rgba(247, 103, 7, 0.15));
+  position: relative;
+  overflow: hidden;
 }
 
-.hero {
-  padding: 4rem 1.5rem;
-  background: linear-gradient(135deg, rgba(76, 110, 245, 0.15), rgba(247, 103, 7, 0.15));
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(247, 103, 7, 0.12), transparent 60%),
+    radial-gradient(circle at 80% 30%, rgba(76, 110, 245, 0.12), transparent 60%);
+  opacity: 0.7;
 }
 
 .hero-content {
+  position: relative;
+  z-index: 1;
   max-width: var(--max-width);
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+  gap: clamp(2rem, 5vw, 3rem);
   align-items: center;
 }
 
 .hero h1 {
-  font-size: clamp(2.2rem, 5vw, 3rem);
-  margin-bottom: 1rem;
+  font-size: clamp(2.3rem, 5vw, 3.2rem);
+  margin-bottom: 1.1rem;
+  color: #18214d;
+  line-height: 1.2;
 }
 
 .hero p {
-  font-size: 1.1rem;
-  color: rgba(33, 37, 41, 0.85);
+  font-size: 1.08rem;
+  color: rgba(33, 37, 41, 0.82);
+  max-width: 520px;
 }
 
 .cta-buttons {
-  margin-top: 1.5rem;
+  margin-top: 1.8rem;
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
 }
 
 .cta-buttons a {
-  background-color: var(--primary-color);
+  background: linear-gradient(135deg, var(--primary-color), #5f87ff);
   color: white;
-  padding: 0.75rem 1.4rem;
+  padding: 0.85rem 1.6rem;
   border-radius: 12px;
   font-weight: 600;
-  box-shadow: 0 8px 20px rgba(76, 110, 245, 0.35);
+  box-shadow: 0 12px 24px rgba(76, 110, 245, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cta-buttons a:hover,
+.cta-buttons a:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 32px rgba(76, 110, 245, 0.4);
 }
 
 .cta-buttons a.secondary {
-  background-color: white;
+  background: white;
   color: var(--primary-color);
-  box-shadow: inset 0 0 0 2px rgba(76, 110, 245, 0.35);
+  box-shadow: inset 0 0 0 2px rgba(76, 110, 245, 0.35), 0 10px 22px rgba(76, 110, 245, 0.18);
 }
-
 .section {
   padding: 4rem 1.5rem;
 }
