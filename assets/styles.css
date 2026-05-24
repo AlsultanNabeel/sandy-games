@@ -197,12 +197,6 @@ nav {
   display: flex;
   flex-direction: column;
   gap: 1.1rem;
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(76, 110, 245, 0.08);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-}
 
 .game-card::before {
   content: "";
