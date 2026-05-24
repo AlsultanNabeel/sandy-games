@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>لعبة اختبار سرعة النقر | Sandy Games</title>
+    <link rel="stylesheet" href="../../assets/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="game-page">
+    <header class="sub-header">
+      <nav>
+        <a href="../../index.html" class="logo">🎮 Sandy Games</a>
+        <div class="nav-links">
+          <a href="../../index.html#games">الألعاب</a>
+          <a href="../../index.html#instructions">التعليمات</a>
+          <a href="../../index.html#about">عن الموقع</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="game-container">
+      <section class="game-card active-game">
+        <header>
+          <h1>لعبة اختبار سرعة النقر</h1>
+        </header>
+        <p>
+          استعد للإشارة ثم انقر بسرعة عند ظهور كلمة <strong>ابدأ!</strong> لمعرفة مدى
+          سرعة رد فعلِك بالميلي ثانية. تجنّب النقر قبل الوقت وإلا ستبدأ الجولة من جديد!
+        </p>
+
+        <div class="game-status">
+          <p id="reaction-message" class="game-feedback" aria-live="polite">
+            اضغط زر البدء لبدء الجولة.
+          </p>
+          <p>
+            آخر نتيجة: <span id="reaction-result" aria-live="polite">-</span>
+          </p>
+        </div>
+
+        <div class="reaction-panel">
+          <button type="button" id="start-reaction" class="primary">
+            ابدأ الجولة
+          </button>
+          <button
+            type="button"
+            id="reaction-target"
+            class="reaction-target"
+            aria-label="منطقة النقر عند ظهور إشارة البدء"
+            disabled
+          >
+            جاهز؟
+          </button>
+        </div>
+
+        <button type="button" id="reset-reaction" class="secondary" hidden>
+          جولة جديدة
+        </button>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <p>© 2024 Sandy Games. جميع الحقوق محفوظة.</p>
+        <p>
+          <a href="../../index.html#top" class="back-to-top">العودة إلى الصفحة الرئيسية</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="../../app.js"></script>
+    <script src="./reaction-test.js"></script>
+  </body>
+</html>
