@@ -212,6 +212,10 @@ nav {
   transition: opacity 0.25s ease;
 }
 
+.game-card:hover::before,
+.game-card:focus-within::before {
+  opacity: 1;
+}
 .game-card .card-header {
   display: flex;
   align-items: center;
