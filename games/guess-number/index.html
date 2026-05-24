@@ -70,11 +70,28 @@
             <p id="feedback" aria-live="polite" class="game-feedback">ابدأ بالتخمين الآن!</p>
           </div>
 
-.
+          <form id="guess-form" class="guess-form" autocomplete="off">
+            <label for="guess-input" class="input-label">أدخل الرقم الذي تتوقعه</label>
+            <div class="guess-controls">
+              <input
+                type="number"
+                id="guess-input"
+                name="guess"
+                min="1"
+                max="100"
+                required
+                inputmode="numeric"
+                placeholder="مثال: 42"
+              />
+              <button type="submit" id="submit-guess" class="primary">تأكيد التخمين</button>
+            </div>
+          </form>
 
-. raw stage that includes controls
-
-. replaced with new lines:
+          <div class="stage-actions">
+            <button type="button" id="play-again" class="secondary" hidden>العب مجددًا</button>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer>
