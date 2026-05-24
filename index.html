@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>عالم الألعاب الصغيرة | Sandy Games</title>
+    <meta
+      name="description"
+      content="Sandy Games — منصة عربية للألعاب الصغيرة مع تصميم حديث، تفاعلات سلسة، وتعليمات واضحة."
+    />
+    <title>سـاندي جيمز | منصة الألعاب الصغيرة</title>
     <link rel="stylesheet" href="assets/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,121 +17,243 @@
     />
   </head>
   <body>
-    <header>
-      <nav>
-        <a href="#top" class="logo" data-scroll>🎮 Sandy Games</a>
-        <div class="nav-links">
-          <a href="#games" data-scroll>الألعاب</a>
-          <a href="#instructions" data-scroll>طريقة اللعب</a>
-          <a href="#about" data-scroll>عن الموقع</a>
-        </div>
+    <a class="skip-link" href="#main-content">تخط إلى المحتوى الرئيسي</a>
+    <header class="site-header" id="top">
+      <nav class="site-nav" aria-label="التنقل الرئيسي">
+        <a href="#hero" class="site-logo" data-scroll>🎮 Sandy Games</a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="فتح القائمة"
+          aria-expanded="false"
+          aria-controls="primary-navigation"
+        >
+          <span aria-hidden="true">☰</span>
+        </button>
+        <ul id="primary-navigation" class="nav-links">
+          <li><a href="#games" data-scroll>الألعاب</a></li>
+          <li><a href="#features" data-scroll>المزايا</a></li>
+          <li><a href="#updates" data-scroll>التحديثات</a></li>
+          <li><a href="#instructions" data-scroll>كيفية اللعب</a></li>
+          <li><a href="#about" data-scroll>عن المنصة</a></li>
+        </ul>
       </nav>
     </header>
 
-    <main id="top">
-      <section class="hero" id="hero">
-        <div class="hero-content">
-          <div>
-            <h1>مجموعة ألعاب صغيرة ممتعة للجميع</h1>
+    <main id="main-content">
+      <section class="hero" id="hero" aria-labelledby="hero-heading">
+        <div class="hero__inner">
+          <div class="hero__copy">
+            <span class="hero__eyebrow">ألعاب خفيفة • تجربة سلسة</span>
+            <h1 id="hero-heading">
+              استكشف مكتبة Sandy Games
+              <span class="text-accent">واستمتع باللعب فورًا</span>
+            </h1>
             <p>
-              مرحبًا بك في Sandy Games! اختر لعبتك المفضلة واستمتع بتجربة سريعة
-              ومريحة مع تعليمات واضحة وتصميم متجاوب يناسب جميع الأجهزة.
+              اختر لعبتك المفضلة وادخل في أجواء ممتعة خلال ثوانٍ. صممنا الواجهة
+              لتكون حديثة، سهلة، ومتجاوبة مع جميع الأجهزة ليسهل عليك التنقل بين
+              الألعاب والتعليمات.
             </p>
-            <div class="cta-buttons">
-              <a href="#games" data-scroll>ابدأ اللعب الآن</a>
-              <a href="#instructions" class="secondary" data-scroll
-                >اطلع على التعليمات</a
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="#games" data-scroll>ابدأ اللعب</a>
+              <a class="btn btn--ghost" href="#features" data-scroll
+                >اكتشف المزايا</a
               >
             </div>
           </div>
-          <div>
+          <figure class="hero__visual" aria-hidden="true">
             <img
               src="https://illustrations.popsy.co/violet/playtime.svg"
-              alt="أشخاص يلعبون ألعاب ممتعة"
-              style="width: 100%; max-width: 420px"
+              alt=""
+              loading="lazy"
             />
-          </div>
+          </figure>
         </div>
       </section>
 
-      <section class="section" id="games">
-        <div class="section-header">
-          <h2>الألعاب المتاحة</h2>
+      <section class="section features" id="features" aria-labelledby="features-heading">
+        <div class="section__header">
+          <h2 id="features-heading">مزايا المنصة</h2>
           <p>
-            ستجد هنا روابط الألعاب الحالية. سنضيف ألعابًا جديدة قريبًا، فترقب
-            التحديثات!
+            واجهة جديدة تعزز تجربة اللعب مع تفاعلات بصرية وانسيابية عالية.
           </p>
         </div>
+        <ul class="feature-list" role="list">
+          <li class="feature-card">
+            <span class="feature-card__icon" aria-hidden="true">✨</span>
+            <div>
+              <h3>تصميم عصري</h3>
+              <p>
+                بنية واضحة تتضمن أقسامًا مخصصة للكشف عن الألعاب، الأخبار،
+                والتعليمات بسهولة.
+              </p>
+            </div>
+          </li>
+          <li class="feature-card">
+            <span class="feature-card__icon" aria-hidden="true">⚡</span>
+            <div>
+              <h3>تفاعلات سلسة</h3>
+              <p>
+                حركات انتقالية ناعمة وزر تنقل ثابت يجعل الوصول إلى الأقسام
+                أسرع وأكثر متعة.
+              </p>
+            </div>
+          </li>
+          <li class="feature-card">
+            <span class="feature-card__icon" aria-hidden="true">📱</span>
+            <div>
+              <h3>استجابة كاملة</h3>
+              <p>
+                تجربة متكاملة عبر الهواتف، الأجهزة اللوحية، والحواسيب مع
+                مراعاة احتياجات الوصول.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section games" id="games" aria-labelledby="games-heading">
+        <div class="section__header">
+          <h2 id="games-heading">ألعاب جاهزة للانطلاق</h2>
+          <p>
+            اكتشف مجموعة الألعاب الحالية، وسنضيف المزيد قريبًا لتبقى المغامرة
+            مستمرة. انتقِ بطاقات الألعاب لمعاينة التفاصيل وبدء اللعب مباشرة.
+          </p>
         </div>
-        <div class="game-grid">
-          <article class="game-card">
-            <header>
+        <div class="game-grid" role="list">
+          <article class="game-card" role="listitem">
+            <figure class="game-card__media" aria-hidden="true">
+              <span class="game-card__icon">🔢</span>
+            </figure>
+            <div class="game-card__body">
               <h3>لعبة تخمين الرقم</h3>
-            </header>
-            <p>
-              جرّب حظك وحدد الرقم السري من 1 إلى 100 خلال عشر محاولات فقط مع
-              تلميحات فورية تساعدك على الوصول للإجابة الصحيحة.
-            </p>
-            <a href="games/guess-number/index.html">العب الآن</a>
+              <p>
+                اختبر حاستك الرقمية وحدد الرقم السري من 1 إلى 100 خلال عشر
+                محاولات مع تلميحات فورية تقرّبك من الفوز.
+              </p>
+            </div>
+            <footer class="game-card__footer">
+              <a class="btn btn--link" href="games/guess-number/index.html">
+                العب الآن
+              </a>
+            </footer>
           </article>
-          <article class="game-card">
-            <header>
-              <h3>لعبة حجر ورقة مقص</h3>
-            </header>
-            <p>
-              واجه الحاسوب في لعبة حجر ورقة مقص الكلاسيكية، واختر الحركة الصحيحة
-              في كل جولة لتحقيق أكبر عدد من الانتصارات.
-            </p>
-            <a href="games/rock-paper-scissors/index.html">العب الآن</a>
+          <article class="game-card" role="listitem">
+            <figure class="game-card__media" aria-hidden="true">
+              <span class="game-card__icon">✋</span>
+            </figure>
+            <div class="game-card__body">
+              <h3>حجر ورقة مقص</h3>
+              <p>
+                واجه الحاسوب في اللعبة الكلاسيكية، وراقب النتائج بعد كل جولة
+                لتبني استراتيجيتك الرابحة.
+              </p>
+            </div>
+            <footer class="game-card__footer">
+              <a class="btn btn--link" href="games/rock-paper-scissors/index.html">
+                العب الآن
+              </a>
+            </footer>
           </article>
-          <article class="game-card">
-            <header>
-              <h3>لعبة اختبار سرعة النقر</h3>
-            </header>
-            <p>
-              اختبر سرعة رد فعلك بالنقر بسرعة فور تغيّر الشاشة، وتابع إحصاءاتك
-              بعد كل محاولة لتحسين أدائك.
-            </p>
-            <a href="games/reaction-test/index.html">العب الآن</a>
+          <article class="game-card" role="listitem">
+            <figure class="game-card__media" aria-hidden="true">
+              <span class="game-card__icon">⏱️</span>
+            </figure>
+            <div class="game-card__body">
+              <h3>اختبار سرعة النقر</h3>
+              <p>
+                تحدَّ سرعة رد فعلك بالنقر فور تغيير اللون، وتابع إحصاءاتك
+                لتسجل أفضل نتيجة مع كل محاولة.
+              </p>
+            </div>
+            <footer class="game-card__footer">
+              <a class="btn btn--link" href="games/reaction-test/index.html">
+                العب الآن
+              </a>
+            </footer>
           </article>
         </div>
       </section>
 
-      <section class="section" id="instructions">
-        <div class="section-header">
-          <h2>كيفية اللعب</h2>
-          <p>إرشادات بسيطة تساعدك على الاستمتاع بألعابنا بأفضل طريقة ممكنة.</p>
-        </div>
-        <div class="instructions">
-          <ol>
-            <li>اختر اللعبة التي ترغب بتجربتها من قسم الألعاب.</li>
-            <li>اقرأ التعليمات الخاصة بكل لعبة قبل البدء.</li>
-            <li>استمتع باللعب وشارك النتائج مع أصدقائك!</li>
-            <li>
-              هل لديك اقتراح بلعبة جديدة؟ تواصل معنا وسنعمل على إضافتها في أقرب
-              وقت.
-            </li>
-          </ol>
-        </div>
-      </section>
-
-      <section class="section" id="about">
-        <div class="section-header">
-          <h2>عن Sandy Games</h2>
+      <section class="section updates" id="updates" aria-labelledby="updates-heading">
+        <div class="section__header">
+          <h2 id="updates-heading">آخر الأخبار والتحديثات</h2>
           <p>
-            منصة صغيرة تهدف لتقديم ألعاب خفيفة وسريعة تناسب كل الأوقات. نركز على
-            البساطة، المتعة، وسهولة الوصول.
+            تابع جديد المنصة، بما في ذلك الألعاب القادمة والتحسينات التي نعمل
+            عليها باستمرار.
           </p>
+        </div>
+        <div class="updates__list" role="list">
+          <article class="update-card" role="listitem">
+            <h3>تصميم واجهة جديد</h3>
+            <p>
+              أعدنا بناء الصفحة الرئيسية لتكون أكثر وضوحًا من خلال تقسيم
+              المحتوى إلى أقسام أساسية وداعمة.
+            </p>
+            <time datetime="2024-05">مايو 2024</time>
+          </article>
+          <article class="update-card" role="listitem">
+            <h3>تجهيز ألعاب إضافية</h3>
+            <p>
+              نعمل على إضافة ألعاب الغاز وتحديات ذهنية جديدة مع ميزة حفظ
+              التقدم. ترقبوا الإعلان عنها قريبًا.
+            </p>
+            <time datetime="2024-06">يونيو 2024</time>
+          </article>
+        </div>
+      </section>
+
+      <section class="section instructions" id="instructions" aria-labelledby="instructions-heading">
+        <div class="section__header">
+          <h2 id="instructions-heading">طريقة اللعب</h2>
+          <p>
+            خطوات بسيطة لتدخل أجواء الألعاب بسرعة مع مراعاة تجربة مستخدم
+            واضحة للجميع.
+          </p>
+        </div>
+        <ol class="instruction-steps">
+          <li>تصفح القائمة العلوية للوصول إلى اللعبة التي تفضلها.</li>
+          <li>اقرأ الوصف المختصر لكل لعبة قبل الانطلاق.</li>
+          <li>اتبع التلميحات داخل اللعبة لتعزيز فرص الفوز.</li>
+          <li>شارك النتائج مع أصدقائك واقترح ألعابًا جديدة لفريقنا.</li>
+        </ol>
+      </section>
+
+      <section class="section about" id="about" aria-labelledby="about-heading">
+        <div class="section__header">
+          <h2 id="about-heading">عن Sandy Games</h2>
+          <p>
+            منصتنا تهدف إلى توفير ألعاب صغيرة ممتعة باللغة العربية، مع اهتمام
+            خاص بتجربة المستخدم والتحديث المستمر للمحتوى.
+          </p>
+        </div>
+        <div class="about__content">
+          <article>
+            <h3>رؤيتنا</h3>
+            <p>
+              خلق مساحة لعب رقمية مصممة بعناية للاسترخاء، التحدي، والتعلم
+              الخفيف في آن واحد.
+            </p>
+          </article>
+          <article>
+            <h3>تواصل معنا</h3>
+            <p>
+              هل لديك فكرة لعبة جديدة أو ترغب بدعم المشروع؟ تواصل معنا عبر
+              البريد الإلكتروني:
+              <a href="mailto:hello@sandy.games">hello@sandy.games</a>.
+            </p>
+          </article>
         </div>
       </section>
     </main>
 
-    <footer>
-      <div class="footer-content">
+    <footer class="site-footer">
+      <div class="footer__inner">
         <p>© 2024 Sandy Games. جميع الحقوق محفوظة.</p>
-        <p>
+        <div class="footer__links">
           <a href="#top" class="back-to-top" data-scroll>العودة إلى الأعلى</a>
-        </p>
+          <a href="#about" data-scroll>عن المنصة</a>
+        </div>
       </div>
     </footer>
 
