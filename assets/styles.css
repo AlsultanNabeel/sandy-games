@@ -216,14 +216,13 @@ nav {
   align-items: center;
   gap: 0.75rem;
   position: relative;
+.game-card .card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  position: relative;
   z-index: 1;
 }
-
-.game-card .card-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, rgba(76, 110, 245, 0.18), rgba(247, 103, 7, 0.15));
   display: grid;
   place-items: center;
   color: var(--primary-color);
