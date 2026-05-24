@@ -44,6 +44,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (supportsHover && supportsPointerFine) {
         card.addEventListener("mouseenter", () => addCardState(card, "is-hovered"));
         card.addEventListener("mouseleave", () => removeCardState(card, "is-hovered"));
+      } else {
+        card.addEventListener("pointerenter", () => addCardState(card, "is-hovered"));
+        card.addEventListener("pointerleave", () => removeCardState(card, "is-hovered"));
       }
 
       card.addEventListener("focusin", () => addCardState(card, "is-focused"));
@@ -51,6 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!card.contains(event.relatedTarget)) {
           removeCardState(card, "is-focused");
         }
+      });
       });
 
       interactiveElements.forEach((element) => {
