@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const attemptsRemaining = document.getElementById("attempts-remaining");
   const playAgainButton = document.getElementById("play-again");
   const submitButton = document.getElementById("submit-guess");
+  const ATTEMPTS_ANIMATION_CLASS = "attempts-animate";
 
   const MAX_ATTEMPTS = 10;
   const MIN_NUMBER = 1;
@@ -18,11 +19,26 @@ document.addEventListener("DOMContentLoaded", () => {
   let remainingAttempts = MAX_ATTEMPTS;
   let isGameOver = false;
 
+  function refreshAttemptsDisplay(value, { animate = true } = {}) {
+    if (!attemptsRemaining) {
+      return;
+    }
+    attemptsRemaining.classList.remove(ATTEMPTS_ANIMATION_CLASS);
+    attemptsRemaining.textContent = value.toString();
+    if (!animate) {
+      return;
+    }
+    // Force reflow to restart the animation
+    // eslint-disable-next-line no-unused-expressions
+    attemptsRemaining.offsetWidth;
+    attemptsRemaining.classList.add(ATTEMPTS_ANIMATION_CLASS);
+  }
+
   function resetGame() {
     secretNumber = getRandomNumber();
     remainingAttempts = MAX_ATTEMPTS;
     isGameOver = false;
-    attemptsRemaining.textContent = remainingAttempts.toString();
+    refreshAttemptsDisplay(remainingAttempts, { animate: false });
     feedback.textContent = "ابدأ بالتخمين الآن!";
     feedback.classList.remove("success", "error");
     form.reset();
@@ -58,6 +74,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  if (attemptsRemaining) {
+    attemptsRemaining.addEventListener("animationend", () => {
+      attemptsRemaining.classList.remove(ATTEMPTS_ANIMATION_CLASS);
+    });
+  }
+
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     if (isGameOver) {
@@ -81,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     remainingAttempts -= 1;
-    attemptsRemaining.textContent = remainingAttempts.toString();
+    refreshAttemptsDisplay(remainingAttempts);
 
     if (guessValue === secretNumber) {
       endGame("رائع! لقد خمنت الرقم الصحيح!", true);
@@ -102,4 +124,5 @@ document.addEventListener("DOMContentLoaded", () => {
   playAgainButton.addEventListener("click", resetGame);
 
   resetGame();
+});
 });
