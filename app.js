@@ -55,7 +55,6 @@ document.addEventListener("DOMContentLoaded", () => {
           removeCardState(card, "is-focused");
         }
       });
-      });
 
       interactiveElements.forEach((element) => {
         element.addEventListener("focus", () => addCardState(card, "is-focused"));
@@ -65,7 +64,13 @@ document.addEventListener("DOMContentLoaded", () => {
             removeCardState(card, "is-focused");
           }
         });
+
+        element.addEventListener("pointerenter", () => addCardState(card, "is-hovered"));
+        element.addEventListener("pointerleave", () => removeCardState(card, "is-hovered"));
       });
+    });
+  }
+
     });
   }
 
