@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>لعبة حجر ورقة مقص | Sandy Games</title>
+    <link rel="stylesheet" href="../../assets/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="game-page">
+    <header class="sub-header">
+      <nav>
+        <a href="../../index.html" class="logo">🎮 Sandy Games</a>
+        <div class="nav-links">
+          <a href="../../index.html#games">الألعاب</a>
+          <a href="../../index.html#instructions">التعليمات</a>
+          <a href="../../index.html#about">عن الموقع</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="game-container">
+      <section class="game-card active-game">
+        <header>
+          <h1>لعبة حجر ورقة مقص</h1>
+        </header>
+        <p>
+          اختَر حجر أو ورقة أو مقص للتحدي ضد الحاسوب. تابع نتائج الجولات وشاهد عدد مرات الفوز والخسارة والتعادل. يمكنك إعادة ضبط النتائج في أي وقت.
+        </p>
+
+        <div class="game-status">
+          <div class="scoreboard" aria-live="polite">
+            <p>الفوز: <span id="wins-count">0</span></p>
+            <p>الخسارة: <span id="losses-count">0</span></p>
+            <p>التعادل: <span id="ties-count">0</span></p>
+          </div>
+          <p id="round-result" class="game-feedback" aria-live="polite">
+            اختر خيارك لبدء التحدي!
+          </p>
+        </div>
+
+        <div class="rps-controls" role="group" aria-label="اختَر حجر أو ورقة أو مقص">
+          <button type="button" class="rps-option" data-choice="rock">🪨 حجر</button>
+          <button type="button" class="rps-option" data-choice="paper">📄 ورقة</button>
+          <button type="button" class="rps-option" data-choice="scissors">✂️ مقص</button>
+        </div>
+
+        <div class="round-details">
+          <p>
+            اختيارك: <span id="player-choice" aria-live="polite">-</span>
+          </p>
+          <p>
+            اختيار الحاسوب: <span id="computer-choice" aria-live="polite">-</span>
+          </p>
+        </div>
+
+        <button type="button" id="reset-score" class="secondary">
+          إعادة ضبط النتائج
+        </button>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <p>© 2024 Sandy Games. جميع الحقوق محفوظة.</p>
+        <p>
+          <a href="../../index.html#top" class="back-to-top">العودة إلى الصفحة الرئيسية</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="../../app.js"></script>
+    <script src="./rock-paper-scissors.js"></script>
+  </body>
+</html>
