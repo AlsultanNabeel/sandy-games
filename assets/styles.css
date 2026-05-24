@@ -718,7 +718,12 @@ main {
   border: 1px solid rgba(93, 75, 255, 0.14);
   position: relative;
   overflow: hidden;
-  transition: transform 240ms ease, box-shadow 240ms ease;
+  transform-origin: center;
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base),
+    filter var(--transition-base);
 }
 
 .game-card::before {
@@ -733,13 +738,18 @@ main {
 }
 
 .game-card:hover,
-.game-card:focus-within {
-  transform: translateY(-6px) scale(1.01);
-  box-shadow: 0 26px 50px rgba(24, 32, 89, 0.18);
+.game-card:focus-within,
+.game-card.is-hovered,
+.game-card.is-focused {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 28px 56px rgba(24, 32, 89, 0.22);
+  border-color: rgba(93, 75, 255, 0.32);
 }
 
 .game-card:hover::before,
-.game-card:focus-within::before {
+.game-card:focus-within::before,
+.game-card.is-hovered::before,
+.game-card.is-focused::before {
   opacity: 1;
 }
 
@@ -753,6 +763,15 @@ main {
   font-size: clamp(1.8rem, 5vw, 2.1rem);
   color: #fff;
   box-shadow: 0 16px 30px rgba(20, 28, 78, 0.18);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.game-card:hover .game-card__media,
+.game-card:focus-within .game-card__media,
+.game-card.is-hovered .game-card__media,
+.game-card.is-focused .game-card__media {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 22px 40px rgba(24, 32, 89, 0.28);
 }
 
 .game-card__body h3 {
@@ -764,6 +783,14 @@ main {
 .game-card__body p {
   margin: 0;
   color: var(--clr-text-muted);
+  transition: color var(--transition-base);
+}
+
+.game-card:hover .game-card__body p,
+.game-card:focus-within .game-card__body p,
+.game-card.is-hovered .game-card__body p,
+.game-card.is-focused .game-card__body p {
+  color: rgba(31, 36, 64, 0.78);
 }
 
 .game-card__footer {
@@ -772,7 +799,39 @@ main {
   align-items: center;
 }
 
+.game-card .btn--link {
+  position: relative;
+  font-weight: var(--font-weight-semibold);
+  transition:
+    color var(--transition-base),
+    transform var(--transition-base),
+    text-shadow var(--transition-base);
+}
+
+.game-card .btn--link::after {
+  transform-origin: center;
+}
+
+.game-card:hover .btn--link,
+.game-card:focus-within .btn--link,
+.game-card.is-hovered .btn--link,
+.game-card.is-focused .btn--link {
+  color: var(--clr-primary-strong);
+  transform: translateX(2px);
+  text-shadow: 0 0 16px rgba(93, 75, 255, 0.2);
+}
+
+.game-card:hover .btn--link::after,
+.game-card:focus-within .btn--link::after,
+.game-card.is-hovered .btn--link::after,
+.game-card.is-focused .btn--link::after {
+  opacity: 1;
+  transform: scaleX(1.1);
+}
+
 .updates {
+  background: rgba(255, 255, 255, 0.92);
+}
   background: rgba(255, 255, 255, 0.92);
 }
 
