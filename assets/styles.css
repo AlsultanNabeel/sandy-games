@@ -271,13 +271,21 @@ nav {
 }
 
 footer {
-  background-color: #161a1d;
-  color: rgba(255, 255, 255, 0.85);
-  padding: 2rem 1.5rem;
+  background-color: #10141f;
+  color: rgba(255, 255, 255, 0.9);
+  padding: clamp(2rem, 5vw, 2.8rem) 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 footer .footer-content {
-footer .footer-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
   max-width: var(--max-width);
   margin: 0 auto;
   display: flex;
