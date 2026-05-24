@@ -415,26 +415,20 @@ body.reduce-motion .hero__shape--ring {
   gap: 0.5rem;
   padding: 0.85rem 1.6rem;
   border-radius: var(--radius-sm);
-  font-weight: var(--font-weight-semibold);
-  transition: transform var(--transition-base), box-shadow var(--transition-base),
-    background var(--transition-base), color var(--transition-base);
-}
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-base: 0ms linear;
+  }
 
-.btn::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(135deg, rgba(255, 138, 61, 0.24), rgba(93, 75, 255, 0.24));
-  opacity: 0;
-  transition: opacity var(--transition-base);
-  z-index: -1;
-}
+  html {
+    scroll-behavior: auto;
+  }
 
-.btn--primary {
-  background: linear-gradient(135deg, var(--clr-primary), var(--clr-primary-strong));
-  color: #fff;
-  box-shadow: var(--shadow-md);
+  body:
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 .btn--primary:hover,
