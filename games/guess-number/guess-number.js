@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const feedback = document.getElementById("feedback");
   const attemptsRemaining = document.getElementById("attempts-remaining");
   const playAgainButton = document.getElementById("play-again");
+  const submitButton = document.getElementById("submit-guess");
 
   const MAX_ATTEMPTS = 10;
   const MIN_NUMBER = 1;
@@ -40,11 +41,30 @@ document.addEventListener("DOMContentLoaded", () => {
     playAgainButton.focus();
   }
 
+  function triggerSubmitButtonAnimation() {
+    if (!submitButton || submitButton.disabled) {
+      return;
+    }
+    submitButton.classList.remove("guess-button-animate");
+    // Force a reflow to restart the animation when class is re-added
+    // eslint-disable-next-line no-unused-expressions
+    submitButton.offsetWidth;
+    submitButton.classList.add("guess-button-animate");
+  }
+
+  if (submitButton) {
+    submitButton.addEventListener("animationend", () => {
+      submitButton.classList.remove("guess-button-animate");
+    });
+  }
+
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     if (isGameOver) {
       return;
     }
+
+    triggerSubmitButtonAnimation();
 
     const guessValue = Number.parseInt(guessInput.value, 10);
 
@@ -81,5 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   playAgainButton.addEventListener("click", resetGame);
 
+  resetGame();
+});
   resetGame();
 });
