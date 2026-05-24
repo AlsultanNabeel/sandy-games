@@ -1,13 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const canUseMatchMedia = typeof window.matchMedia === "function";
   const navLinks = document.querySelectorAll("a[data-scroll]");
   const backToTop = document.querySelector(".back-to-top");
   const gameCards = document.querySelectorAll(".game-card");
-  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-  const supportsHover = window.matchMedia("(hover: hover)").matches;
-  const supportsPointerFine = window.matchMedia("(pointer: fine)").matches;
+  const prefersReducedMotion = canUseMatchMedia
+    ? window.matchMedia("(prefers-reduced-motion: reduce)")
+    : { matches: false };
+  const supportsHover = canUseMatchMedia ? window.matchMedia("(hover: hover)").matches : false;
+  const supportsPointerFine = canUseMatchMedia ? window.matchMedia("(pointer: fine)").matches : false;
 
-  navLinks.forEach((link) => {
-    link.addEventListener("click", (event) => {
       const targetId = link.getAttribute("href");
 
       if (targetId.startsWith("#")) {
