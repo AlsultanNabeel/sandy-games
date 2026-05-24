@@ -415,6 +415,14 @@ body.reduce-motion .hero__shape--ring {
   gap: 0.5rem;
   padding: 0.85rem 1.6rem;
   border-radius: var(--radius-sm);
+  font-weight: var(--font-weight-medium);
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  line-height: 1;
+  transition: transform var(--transition-base), box-shadow var(--transition-base),
+    background var(--transition-base), color var(--transition-base);
+  cursor: pointer;
+}
+
 @media (prefers-reduced-motion: reduce) {
   :root {
     --transition-base: 0ms linear;
@@ -424,12 +432,13 @@ body.reduce-motion .hero__shape--ring {
     scroll-behavior: auto;
   }
 
-  body:
+  body {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 }
+
 
 .btn--primary:hover,
 .btn--primary:focus-visible {
