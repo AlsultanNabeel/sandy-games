@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>لعبة تخمين الرقم | Sandy Games</title>
+    <link rel="stylesheet" href="../../assets/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="game-page">
+    <header class="sub-header">
+      <nav>
+        <a href="../../index.html" class="logo">🎮 Sandy Games</a>
+        <div class="nav-links">
+          <a href="../../index.html#games">الألعاب</a>
+          <a href="../../index.html#instructions">التعليمات</a>
+          <a href="../../index.html#about">عن الموقع</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="game-container">
+      <section class="game-card active-game">
+        <header>
+          <h1>لعبة تخمين الرقم</h1>
+        </header>
+        <p>
+          حاول تخمين الرقم السري بين <strong>1</strong> و<strong>100</strong> خلال
+          عشر محاولات فقط. بعد كل محاولة سنخبرك إن كان الرقم الذي أدخلته أعلى أم
+          أقل من الرقم المطلوب.
+        </p>
+
+        <div class="game-status">
+          <p>
+            المحاولات المتبقية:
+            <span id="attempts-remaining" aria-live="polite">10</span>
+          </p>
+          <p id="feedback" aria-live="polite" class="game-feedback">
+            ابدأ بالتخمين الآن!
+          </p>
+        </div>
+
+        <form id="guess-form" class="guess-form" autocomplete="off">
+          <label for="guess-input">أدخل رقمك:</label>
+          <div class="guess-controls">
+            <input
+              type="number"
+              id="guess-input"
+              name="guess"
+              min="1"
+              max="100"
+              required
+              inputmode="numeric"
+            />
+            <button type="submit" id="submit-guess">تخمين</button>
+          </div>
+        </form>
+
+        <button type="button" id="play-again" class="secondary" hidden>
+          العب مجددًا
+        </button>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <p>© 2024 Sandy Games. جميع الحقوق محفوظة.</p>
+        <p>
+          <a href="../../index.html#top" class="back-to-top">العودة إلى الصفحة الرئيسية</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="../../app.js"></script>
+    <script src="./guess-number.js"></script>
+  </body>
+</html>
