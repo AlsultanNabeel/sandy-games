@@ -24,43 +24,69 @@
       </nav>
     </header>
 
-    <main class="game-container">
-      <section class="game-card active-game">
-        <header>
-          <h1>لعبة اختبار سرعة النقر</h1>
-        </header>
-        <p>
-          استعد للإشارة ثم انقر بسرعة عند ظهور كلمة <strong>ابدأ!</strong> لمعرفة مدى
-          سرعة رد فعلِك بالميلي ثانية. تجنّب النقر قبل الوقت وإلا ستبدأ الجولة من جديد!
-        </p>
-
-        <div class="game-status">
-          <p id="reaction-message" class="game-feedback" aria-live="polite">
-            اضغط زر البدء لبدء الجولة.
-          </p>
-          <p>
-            آخر نتيجة: <span id="reaction-result" aria-live="polite">-</span>
+    <main class="game-shell">
+      <section class="game-hero" aria-labelledby="game-title">
+        <div class="hero-meta">
+          <span class="hero-status" id="reaction-status" role="status" aria-live="polite">
+            في وضع الهدوء
+          </span>
+          <div class="hero-timer" id="reaction-timer">
+            <span class="timer-label">اسرع نتيجة</span>
+            <span class="timer-value" data-fallback="∞" aria-live="polite">∞</span>
+          </div>
+        </div>
+        <div class="hero-heading">
+          <p class="hero-breadcrumb">Sandy Games • ألعاب السرعة</p>
+          <h1 id="game-title">لعبة اختبار سرعة النقر</h1>
+          <p class="hero-subtitle">
+            تمالك أعصابك ثم انطلق عند ظهور الإشارة. كل جزء من الثانية يحدث الفرق!
           </p>
         </div>
+      </section>
 
-        <div class="reaction-panel">
-          <button type="button" id="start-reaction" class="primary">
-            ابدأ الجولة
-          </button>
-          <button
-            type="button"
-            id="reaction-target"
-            class="reaction-target"
-            aria-label="منطقة النقر عند ظهور إشارة البدء"
-            disabled
-          >
-            جاهز؟
-          </button>
+      <section class="game-content">
+        <aside class="game-sidebar" aria-label="لوحة التعليمات">
+          <h2>طريقة اللعب</h2>
+          <ol class="instruction-steps">
+            <li>اضغط زر "ابدأ الجولة" واستعد للإشارة.</li>
+            <li>عندما تظهر كلمة <strong>ابدأ!</strong> انقر فورًا على منطقة الهدف.</li>
+            <li>تجنب النقر المبكر وإلا ستُعاد الجولة.</li>
+          </ol>
+          <div class="tips-box" role="note">
+            <h3>تحسين سرعتك</h3>
+            <p>ثبّت يدك قرب الماوس وخذ نفسًا عميقًا قبل الإشارة لتكون جاهزًا.</p>
+          </div>
+        </aside>
+
+        <div class="game-stage">
+          <header class="stage-header">
+            <h2>منطقة اللعب</h2>
+            <div class="stage-status">
+              <p>آخر نتيجة: <span id="reaction-result" aria-live="polite">-</span></p>
+            </div>
+          </header>
+
+          <div class="stage-feedback">
+            <p id="reaction-message" class="game-feedback" aria-live="polite">اضغط زر البدء لبدء الجولة.</p>
+          </div>
+
+          <div class="stage-actions">
+            <button type="button" id="start-reaction" class="primary">ابدأ الجولة</button>
+            <button
+              type="button"
+              id="reaction-target"
+              class="reaction-target"
+              aria-label="منطقة النقر عند ظهور إشارة البدء"
+              disabled
+            >
+              جاهز؟
+            </button>
+          </div>
+
+          <div class="stage-actions stage-actions--inline">
+            <button type="button" id="reset-reaction" class="secondary" hidden>جولة جديدة</button>
+          </div>
         </div>
-
-        <button type="button" id="reset-reaction" class="secondary" hidden>
-          جولة جديدة
-        </button>
       </section>
     </main>
 
