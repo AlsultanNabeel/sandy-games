@@ -42,30 +42,32 @@
     <main id="main-content">
       <section class="hero" id="hero" aria-labelledby="hero-heading">
         <div class="hero__background" aria-hidden="true">
-          <span class="hero__shape hero__shape--orb"></span>
-          <span class="hero__shape hero__shape--ring"></span>
-          <span class="hero__shape hero__shape--flare"></span>
+          <span class="hero__flair hero__flair--orb"></span>
+          <span class="hero__flair hero__flair--ring"></span>
+          <span class="hero__flair hero__flair--beam"></span>
         </div>
+        <span class="hero__floating-layer" aria-hidden="true"></span>
         <div class="hero__inner">
           <div class="hero__copy">
-            <span class="hero__eyebrow">ألعاب خفيفة • تجربة سلسة</span>
-            <h1 id="hero-heading" class="hero__headline">
+            <span class="hero__eyebrow" data-animate="fade-up">ألعاب خفيفة • تجربة سلسة</span>
+            <h1 id="hero-heading" class="hero__headline" data-animate="fade-up" data-animate-delay="80">
               استكشف مكتبة Sandy Games
               <span class="text-accent">واستمتع باللعب فورًا</span>
             </h1>
-            <p class="hero__description">
-              اختر لعبتك المفضلة وادخل في أجواء ممتعة خلال ثوانٍ. صممنا الواجهة
-              لتكون حديثة، سهلة، ومتجاوبة مع جميع الأجهزة ليسهل عليك التنقل بين
-              الألعاب والتعليمات.
+            <p
+              class="hero__description"
+              data-animate="fade-up"
+              data-animate-delay="160"
+            >
+              اختر لعبتك المفضلة وادخل في أجواء ممتعة خلال ثوانٍ. صممنا الواجهة لتكون حديثة، سهلة،
+              ومتجاوبة مع جميع الأجهزة ليسهل عليك التنقل بين الألعاب والتعليمات.
             </p>
-            <div class="hero__actions">
+            <div class="hero__actions" data-animate="fade-up" data-animate-delay="240">
               <a class="btn btn--primary" href="#games" data-scroll>ابدأ اللعب</a>
-              <a class="btn btn--ghost" href="#features" data-scroll>
-                اكتشف المزايا
-              </a>
+              <a class="btn btn--ghost" href="#features" data-scroll> اكتشف المزايا </a>
             </div>
           </div>
-          <figure class="hero__visual" aria-hidden="true">
+          <figure class="hero__visual" aria-hidden="true" data-animate="fade-up" data-animate-delay="200">
             <span class="hero__visual-glow"></span>
             <img
               src="https://illustrations.popsy.co/violet/playtime.svg"
@@ -73,6 +75,7 @@
               loading="lazy"
             />
           </figure>
+        </div>
         </div>
       </section>
 
