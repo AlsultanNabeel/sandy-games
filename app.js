@@ -1,6 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
   const navLinks = document.querySelectorAll("a[data-scroll]");
   const backToTop = document.querySelector(".back-to-top");
+  const gameCards = document.querySelectorAll(".game-card");
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const supportsHover = window.matchMedia("(hover: hover)").matches;
+  const supportsPointerFine = window.matchMedia("(pointer: fine)").matches;
 
   navLinks.forEach((link) => {
     link.addEventListener("click", (event) => {
@@ -24,9 +28,48 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  function addCardState(card, stateClass) {
+    card.classList.add(stateClass);
+  }
+
+  function removeCardState(card, stateClass) {
+    card.classList.remove(stateClass);
+  }
+
+  function setupCardInteractions() {
+    gameCards.forEach((card) => {
+      const interactiveElements = card.querySelectorAll("a, button, [tabindex]");
+
+      if (supportsHover && supportsPointerFine) {
+        card.addEventListener("mouseenter", () => addCardState(card, "is-hovered"));
+        card.addEventListener("mouseleave", () => removeCardState(card, "is-hovered"));
+      }
+
+      card.addEventListener("focusin", () => addCardState(card, "is-focused"));
+      card.addEventListener("focusout", (event) => {
+        if (!card.contains(event.relatedTarget)) {
+          removeCardState(card, "is-focused");
+        }
+      });
+
+      interactiveElements.forEach((element) => {
+        element.addEventListener("focus", () => addCardState(card, "is-focused"));
+        element.addEventListener("blur", (event) => {
+          const nextFocused = event.relatedTarget;
+          if (!card.contains(nextFocused)) {
+            removeCardState(card, "is-focused");
+          }
+        });
+      });
+    });
+  }
+
+  if (gameCards.length > 0) {
+    setupCardInteractions();
+  }
+
   const heroSection = document.querySelector(".hero");
-  const heroAnimatedElements = document.querySelectorAll("[data-animate=\"fade-up\"]");
-  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const heroAnimatedElements = document.querySelectorAll('[data-animate="fade-up"]');
 
   function activateHeroAnimations() {
     if (!heroSection) return;
