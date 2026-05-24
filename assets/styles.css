@@ -223,3 +223,127 @@ footer a {
     justify-content: center;
   }
 }
+
+/* Guess the Number game styles */
+.game-page body {
+  background-color: var(--background-color);
+}
+
+.sub-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.game-container {
+  padding: 4rem 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.game-card.active-game {
+  max-width: 520px;
+  width: 100%;
+  text-align: right;
+}
+
+.game-card.active-game header h1 {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+}
+
+.game-status {
+  margin-top: 1.25rem;
+  display: grid;
+  gap: 0.75rem;
+  color: rgba(33, 37, 41, 0.75);
+  font-weight: 500;
+}
+
+.guess-form {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.guess-controls {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.guess-controls input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(76, 110, 245, 0.3);
+  font-size: 1.05rem;
+}
+
+.guess-controls button {
+  padding: 0.75rem 1.6rem;
+  border-radius: 12px;
+  border: none;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.guess-controls button:hover,
+.guess-controls button:focus {
+  background-color: #3b5bdb;
+}
+
+#play-again {
+  margin-top: 1.25rem;
+  padding: 0.75rem 1.6rem;
+  border-radius: 12px;
+  border: 2px solid rgba(76, 110, 245, 0.3);
+  background-color: white;
+  color: var(--primary-color);
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+#play-again:hover,
+#play-again:focus {
+  border-color: var(--primary-color);
+  color: #3b5bdb;
+}
+
+.game-feedback {
+  min-height: 1.25rem;
+}
+
+.game-feedback.success {
+  color: #1b7a51;
+  font-weight: 600;
+}
+
+.game-feedback.error {
+  color: #c0392b;
+  font-weight: 600;
+}
+
+.guess-controls input:disabled {
+  background-color: rgba(76, 110, 245, 0.08);
+  cursor: not-allowed;
+}
+
+.back-to-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+@media (max-width: 480px) {
+  .guess-controls {
+    flex-direction: column;
+  }
+
+  .guess-controls button,
+  #play-again {
+    width: 100%;
+  }
+}
