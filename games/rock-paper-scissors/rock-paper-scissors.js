@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const optionsContainer = document.querySelector(".rps-controls");
+  const optionsContainer = document.getElementById("rps-options");
+  const optionButtons = document.querySelectorAll(".rps-option");
+  const heroStatus = document.getElementById("rps-status");
+  const roundsCount = document.querySelector("#rps-timer .timer-value");
   const resultText = document.getElementById("round-result");
   const playerChoiceText = document.getElementById("player-choice");
   const computerChoiceText = document.getElementById("computer-choice");
@@ -8,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const tiesCount = document.getElementById("ties-count");
   const resetButton = document.getElementById("reset-score");
 
+  const WINS_TO_FINISH = 3;
   const choices = ["rock", "paper", "scissors"];
   const choiceLabels = {
     rock: "🪨 حجر",
@@ -25,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     wins: 0,
     losses: 0,
     ties: 0,
+    isMatchOver: false,
   };
 
   function getComputerChoice() {
@@ -50,6 +55,31 @@ document.addEventListener("DOMContentLoaded", () => {
     winsCount.textContent = state.wins.toString();
     lossesCount.textContent = state.losses.toString();
     tiesCount.textContent = state.ties.toString();
+    roundsCount.textContent = (state.wins + state.losses + state.ties).toString();
+  }
+
+  function setOptionsDisabled(disabled) {
+    optionButtons.forEach((button) => {
+      button.disabled = disabled;
+    });
+  }
+
+  function finishMatchIfNeeded() {
+    if (state.wins < WINS_TO_FINISH && state.losses < WINS_TO_FINISH) {
+      return;
+    }
+
+    const playerWon = state.wins >= WINS_TO_FINISH;
+    state.isMatchOver = true;
+    setOptionsDisabled(true);
+    resultText.textContent = playerWon
+      ? `🏆 فزت بالمباراة ${state.wins} - ${state.losses}!`
+      : `💻 فاز الحاسوب بالمباراة ${state.losses} - ${state.wins}. جرّب مرة أخرى!`;
+    resultText.classList.toggle("success", playerWon);
+    resultText.classList.toggle("error", !playerWon);
+    heroStatus.textContent = playerWon ? "🏆 فوز!" : "انتهت المباراة";
+    resetButton.textContent = "مباراة جديدة";
+    resetButton.focus();
   }
 
   function updateRoundDetails(player, computer) {
@@ -71,6 +101,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function handlePlayerChoice(choice) {
+    if (state.isMatchOver) {
+      return;
+    }
+
     const computerChoice = getComputerChoice();
     const result = determineResult(choice, computerChoice);
 
@@ -81,17 +115,23 @@ document.addEventListener("DOMContentLoaded", () => {
     updateRoundDetails(choice, computerChoice);
     updateResultMessage(result);
     updateScoreboard();
+    heroStatus.textContent = "المباراة جارية";
+    finishMatchIfNeeded();
   }
 
   function resetGame() {
     state.wins = 0;
     state.losses = 0;
     state.ties = 0;
+    state.isMatchOver = false;
     updateScoreboard();
+    setOptionsDisabled(false);
+    heroStatus.textContent = "جاهز للتحدي";
+    resetButton.textContent = "إعادة ضبط النتائج";
 
     playerChoiceText.textContent = "-";
     computerChoiceText.textContent = "-";
-    resultText.textContent = "اختر خيارك لبدء التحدي!";
+    resultText.textContent = `اختر خيارك لبدء التحدي! أول من يصل إلى ${WINS_TO_FINISH} انتصارات يفوز.`;
     resultText.classList.remove("success", "error");
   }
 
