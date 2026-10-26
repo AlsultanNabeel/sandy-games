@@ -1,26 +1,22 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>لعبة اختبار سرعة النقر | Sandy Games</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>" />
     <link rel="stylesheet" href="../../assets/styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
   </head>
   <body class="game-page">
-    <header class="sub-header">
-      <nav>
-        <a href="../../index.html" class="logo">🎮 Sandy Games</a>
-        <div class="nav-links">
-          <a href="../../index.html#games">الألعاب</a>
-          <a href="../../index.html#instructions">التعليمات</a>
-          <a href="../../index.html#about">عن الموقع</a>
-        </div>
+    <header class="site-header">
+      <nav class="site-nav" aria-label="التنقل الرئيسي">
+        <a href="../../index.html" class="site-logo">🎮 Sandy Games</a>
+        <ul class="nav-links">
+          <li><a href="../../index.html">الرئيسية</a></li>
+          <li><a href="../../index.html#games">الألعاب</a></li>
+          <li><a href="../../index.html#instructions">كيفية اللعب</a></li>
+          <li><a href="../../index.html#about">عن المنصة</a></li>
+        </ul>
       </nav>
     </header>
 
@@ -31,7 +27,7 @@
             في وضع الهدوء
           </span>
           <div class="hero-timer" id="reaction-timer">
-            <span class="timer-label">اسرع نتيجة</span>
+            <span class="timer-label">أسرع نتيجة</span>
             <span class="timer-value" data-fallback="∞" aria-live="polite">∞</span>
           </div>
         </div>
@@ -86,16 +82,18 @@
           <div class="stage-actions stage-actions--inline">
             <button type="button" id="reset-reaction" class="secondary" hidden>تصفير النتائج</button>
           </div>
+          <a class="btn btn--ghost back-home" href="../../index.html">→ العودة إلى الصفحة الرئيسية</a>
         </div>
       </section>
     </main>
 
-    <footer>
-      <div class="footer-content">
-        <p>© 2024 Sandy Games. جميع الحقوق محفوظة.</p>
-        <p>
-          <a href="../../index.html#top" class="back-to-top">العودة إلى الصفحة الرئيسية</a>
-        </p>
+    <footer class="site-footer">
+      <div class="footer__inner">
+        <p>© <span data-year>2024</span> Sandy Games</p>
+        <div class="footer__links">
+          <a href="../../index.html">→ العودة إلى الصفحة الرئيسية</a>
+          <a href="../../index.html#games">ألعاب أخرى</a>
+        </div>
       </div>
     </footer>
 

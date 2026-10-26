@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const playAgainButton = document.getElementById("play-again");
   const submitButton = document.getElementById("submit-guess");
   const heroStatus = document.getElementById("hero-status");
+  const winsTotal = document.getElementById("wins-total");
   const ATTEMPTS_ANIMATION_CLASS = "attempts-animate";
 
   const MAX_ATTEMPTS = 10;
@@ -19,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let secretNumber = getRandomNumber();
   let remainingAttempts = MAX_ATTEMPTS;
   let isGameOver = false;
+  let wins = 0;
 
   function refreshAttemptsDisplay(value, { animate = true } = {}) {
     if (!attemptsRemaining) {
@@ -112,6 +114,8 @@ document.addEventListener("DOMContentLoaded", () => {
     refreshAttemptsDisplay(remainingAttempts);
 
     if (guessValue === secretNumber) {
+      wins += 1;
+      if (winsTotal) winsTotal.textContent = wins.toString();
       endGame("رائع! لقد خمنت الرقم الصحيح!", true);
       return;
     }

@@ -1,26 +1,22 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>لعبة حجر ورقة مقص | Sandy Games</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>" />
     <link rel="stylesheet" href="../../assets/styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
   </head>
   <body class="game-page">
-    <header class="sub-header">
-      <nav>
-        <a href="../../index.html" class="logo">🎮 Sandy Games</a>
-        <div class="nav-links">
-          <a href="../../index.html#games">الألعاب</a>
-          <a href="../../index.html#instructions">التعليمات</a>
-          <a href="../../index.html#about">عن الموقع</a>
-        </div>
+    <header class="site-header">
+      <nav class="site-nav" aria-label="التنقل الرئيسي">
+        <a href="../../index.html" class="site-logo">🎮 Sandy Games</a>
+        <ul class="nav-links">
+          <li><a href="../../index.html">الرئيسية</a></li>
+          <li><a href="../../index.html#games">الألعاب</a></li>
+          <li><a href="../../index.html#instructions">كيفية اللعب</a></li>
+          <li><a href="../../index.html#about">عن المنصة</a></li>
+        </ul>
       </nav>
     </header>
 
@@ -41,7 +37,7 @@
           </p>
         </div>
       </section>
-      
+
       <section class="game-content">
         <aside class="game-sidebar" aria-label="لوحة التعليمات">
           <h2>طريقة اللعب</h2>
@@ -55,7 +51,7 @@
             <p>راقب نمط اختيارات الحاسوب، وجرب استراتيجيات مختلفة للتحكم في مجريات اللعب.</p>
           </div>
         </aside>
-        
+
         <div class="game-stage">
           <header class="stage-header">
             <h2>منطقة اللعب</h2>
@@ -65,35 +61,37 @@
               <p>التعادل: <span id="ties-count" aria-live="polite">0</span></p>
             </div>
           </header>
-          
+
           <div class="stage-feedback">
             <p id="round-result" class="game-feedback" aria-live="polite">اختر خيارك لبدء التحدي!</p>
           </div>
-          
+
           <div id="rps-options" class="stage-actions stage-actions--inline" role="group" aria-label="اختَر حجر أو ورقة أو مقص">
             <button type="button" class="rps-option primary" data-choice="rock">🪨 حجر</button>
             <button type="button" class="rps-option primary" data-choice="paper">📄 ورقة</button>
             <button type="button" class="rps-option primary" data-choice="scissors">✂️ مقص</button>
           </div>
-          
+
           <div class="stage-results">
             <p>اختيارك: <span id="player-choice" aria-live="polite">-</span></p>
             <p>اختيار الحاسوب: <span id="computer-choice" aria-live="polite">-</span></p>
           </div>
-          
+
           <div class="stage-actions">
             <button type="button" id="reset-score" class="secondary">إعادة ضبط النتائج</button>
           </div>
+          <a class="btn btn--ghost back-home" href="../../index.html">→ العودة إلى الصفحة الرئيسية</a>
         </div>
       </section>
     </main>
 
-    <footer>
-      <div class="footer-content">
-        <p>© 2024 Sandy Games. جميع الحقوق محفوظة.</p>
-        <p>
-          <a href="../../index.html#top" class="back-to-top">العودة إلى الصفحة الرئيسية</a>
-        </p>
+    <footer class="site-footer">
+      <div class="footer__inner">
+        <p>© <span data-year>2024</span> Sandy Games</p>
+        <div class="footer__links">
+          <a href="../../index.html">→ العودة إلى الصفحة الرئيسية</a>
+          <a href="../../index.html#games">ألعاب أخرى</a>
+        </div>
       </div>
     </footer>
 
