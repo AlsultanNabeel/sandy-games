@@ -79,7 +79,6 @@ document.addEventListener("DOMContentLoaded", () => {
     resultText.classList.toggle("error", !playerWon);
     heroStatus.textContent = playerWon ? "🏆 فوز!" : "انتهت المباراة";
     resetButton.textContent = "مباراة جديدة";
-    resetButton.focus();
   }
 
   function updateRoundDetails(player, computer) {

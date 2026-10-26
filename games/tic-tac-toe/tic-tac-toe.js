@@ -121,7 +121,6 @@ document.addEventListener("DOMContentLoaded", () => {
       setMessage("تعادل! لا أحد أكمل صفًا.", null);
     }
     updateScore();
-    restartButton.focus();
   }
 
   function checkRoundEnd(mark) {

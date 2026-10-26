@@ -72,7 +72,6 @@ document.addEventListener("DOMContentLoaded", () => {
       heroStatus.textContent = "خسارة";
       setMessage("انتهت المحاولات! هذه أماكن البطاقات، جرّب مرة أخرى.", "error");
     }
-    restartButton.focus();
   }
 
   function handleCardClick(card) {

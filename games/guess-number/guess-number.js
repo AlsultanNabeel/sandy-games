@@ -60,7 +60,6 @@ document.addEventListener("DOMContentLoaded", () => {
     submitButton.disabled = true;
     if (heroStatus) heroStatus.textContent = isSuccess ? "🏆 فوز!" : "انتهت اللعبة";
     playAgainButton.hidden = false;
-    playAgainButton.focus();
   }
 
   function triggerSubmitButtonAnimation() {
