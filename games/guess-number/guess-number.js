@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const attemptsRemaining = document.getElementById("attempts-remaining");
   const playAgainButton = document.getElementById("play-again");
   const submitButton = document.getElementById("submit-guess");
+  const heroStatus = document.getElementById("hero-status");
   const ATTEMPTS_ANIMATION_CLASS = "attempts-animate";
 
   const MAX_ATTEMPTS = 10;
@@ -44,7 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
     form.reset();
     guessInput.disabled = false;
     playAgainButton.hidden = true;
-    guessInput.focus();
+    submitButton.disabled = false;
+    if (heroStatus) heroStatus.textContent = "جاهز للعب";
   }
 
   function endGame(message, isSuccess = false) {
@@ -53,6 +55,8 @@ document.addEventListener("DOMContentLoaded", () => {
     feedback.classList.toggle("error", !isSuccess);
     isGameOver = true;
     guessInput.disabled = true;
+    submitButton.disabled = true;
+    if (heroStatus) heroStatus.textContent = isSuccess ? "🏆 فوز!" : "انتهت اللعبة";
     playAgainButton.hidden = false;
     playAgainButton.focus();
   }
@@ -92,12 +96,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (Number.isNaN(guessValue)) {
       feedback.textContent = "رجاءً أدخل رقمًا صالحًا.";
+      feedback.classList.remove("success");
       feedback.classList.add("error");
       return;
     }
 
     if (guessValue < MIN_NUMBER || guessValue > MAX_NUMBER) {
       feedback.textContent = `الرجاء اختيار رقم بين ${MIN_NUMBER} و ${MAX_NUMBER}.`;
+      feedback.classList.remove("success");
       feedback.classList.add("error");
       return;
     }
@@ -115,14 +121,17 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    feedback.textContent = guessValue > secretNumber ? "رقمك أعلى من المطلوب." : "رقمك أقل من المطلوب.";
+    feedback.textContent =
+      guessValue > secretNumber ? `${guessValue}: رقمك أعلى من المطلوب ⬇️` : `${guessValue}: رقمك أقل من المطلوب ⬆️`;
     feedback.classList.add("error");
     feedback.classList.remove("success");
     guessInput.select();
   });
 
-  playAgainButton.addEventListener("click", resetGame);
+  playAgainButton.addEventListener("click", () => {
+    resetGame();
+    guessInput.focus();
+  });
 
   resetGame();
-});
 });
